@@ -10,8 +10,8 @@ import Foundation
 struct UserDetail: Codable, Identifiable {
     let id: Int
     let nickName: String
-    var name: String?
-    var avatarUrl: String
+    let name: String?
+    let avatarUrl: String
     let followers: Int
     let following: Int
     

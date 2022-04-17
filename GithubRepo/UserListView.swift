@@ -26,7 +26,6 @@ struct UserListView: View {
                                                name: user.name,
                                                avatarUrl: user.avatarUrl))
                     }
-
                 }
             }
             .listStyle(.grouped)

@@ -17,5 +17,4 @@ struct User: Codable, Identifiable {
         case name = "login"
         case avatarUrl = "avatar_url"
     }
-
 }
