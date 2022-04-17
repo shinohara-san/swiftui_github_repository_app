@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct UserDetailView: View {
-
+    
     let userName: String
-
+    
     @State var userDetail: UserDetail?
-
+    @State var repositories: [Repository]?
+    
     var body: some View {
         VStack {
             UserInfoView(userDetail: userDetail)
@@ -22,7 +23,12 @@ struct UserDetailView: View {
                         self.userDetail = userDetail
                     }
                 }
-            Spacer()
+            RepositoryListView(repositories: repositories)
+                .onAppear {
+                    APIClient.getRepositories(userName: userName) { repositories in
+                        self.repositories = repositories
+                    }
+                }
         }
     }
 }

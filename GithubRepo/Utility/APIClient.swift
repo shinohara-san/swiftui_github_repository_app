@@ -36,4 +36,18 @@ class APIClient {
             }
         }
     }
+
+    static func getRepositories(userName: String, completion: @escaping ([Repository]) -> ()) {
+        AF.request("https://api.github.com/users/\(userName)/repos",
+                   method: .get,
+                   encoding: URLEncoding.default)
+        .responseDecodable(of: [Repository].self) { response in
+            switch response.result {
+            case .success(let data):
+                completion(data)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
