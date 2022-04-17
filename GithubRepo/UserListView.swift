@@ -10,7 +10,7 @@ import SwiftUI
 struct UserListView: View {
 
     init() {
-        setUpNavigationBarColor()
+        NavigationViewManager.setUpColor()
     }
     
     @State private var users = [UserDetail]()
@@ -31,15 +31,6 @@ struct UserListView: View {
                 self.users.append(users)
             }
         }
-    }
-
-    private func setUpNavigationBarColor() {
-        let coloredAppearance = UINavigationBarAppearance()
-        coloredAppearance.configureWithTransparentBackground()
-        coloredAppearance.backgroundColor = .blue
-        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        UINavigationBar.appearance().standardAppearance = coloredAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
     }
 }
 
