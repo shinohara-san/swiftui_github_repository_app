@@ -20,10 +20,10 @@ struct UserListView: View {
             List {
                 ForEach(users) { user in
                     NavigationLink {
-                        UserDetailView()
+                        UserDetailView(userName: user.userName)
                     } label: {
                         UserRow(userData: User(id: user.id,
-                                               name: user.name,
+                                               userName: user.userName,
                                                avatarUrl: user.avatarUrl))
                     }
                 }
@@ -43,6 +43,5 @@ struct UserListView: View {
 struct UserListView_Previews: PreviewProvider {
     static var previews: some View {
         UserListView()
-            .previewDevice(PreviewDevice(rawValue: "iPhone 13"))
     }
 }

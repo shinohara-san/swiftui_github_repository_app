@@ -22,4 +22,18 @@ class APIClient {
             }
         }
     }
+
+    static func getUser(userName: String, completion: @escaping (UserDetail) -> ()) {
+        AF.request("https://api.github.com/users/\(userName)",
+                   method: .get,
+                   encoding: URLEncoding.default)
+        .responseDecodable(of: UserDetail.self) { response in
+            switch response.result {
+            case .success(let data):
+                completion(data)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }

@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct UserDetailView: View {
+
+    let userName: String
+
+    @State var userDetail: UserDetail?
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            UserInfoView(userDetail: userDetail)
+                .padding()
+                .onAppear {
+                    APIClient.getUser(userName: userName) { userDetail in
+                        self.userDetail = userDetail
+                    }
+                }
+            Spacer()
+        }
     }
 }
 
 struct UserDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        UserDetailView()
+        UserDetailView(userName: "shino")
     }
 }

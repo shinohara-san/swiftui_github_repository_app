@@ -25,7 +25,7 @@ struct UserRow: View {
                 .scaledToFit()
                 .frame(width: 64, height: 64, alignment: .center)
 
-            Text(userData.name)
+            Text(userData.userName)
             Spacer()
         }
     }
@@ -33,6 +33,6 @@ struct UserRow: View {
 
 struct UserRow_Previews: PreviewProvider {
     static var previews: some View {
-        UserRow(userData: User(id: 1, name: "shino", avatarUrl: "https://avatars.githubusercontent.com/u/56948513?v=4"))
+        UserRow(userData: User(id: 1, userName: "shino", avatarUrl: "https://avatars.githubusercontent.com/u/56948513?v=4"))
     }
 }

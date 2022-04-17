@@ -18,6 +18,7 @@
 		B6EC5954280C19C6001ECD76 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC5953280C19C6001ECD76 /* APIClient.swift */; };
 		B6EC5956280C2F37001ECD76 /* NavigationViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC5955280C2F37001ECD76 /* NavigationViewManager.swift */; };
 		B6EC595A280C3009001ECD76 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC5959280C3009001ECD76 /* UserDetailView.swift */; };
+		B6EC595C280C448E001ECD76 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC595B280C448E001ECD76 /* UserInfoView.swift */; };
 		D16D01FBB4ED3EA8B42F67AE /* Pods_GithubRepo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884F0A565126913E75CC3BD1 /* Pods_GithubRepo.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		B6EC5953280C19C6001ECD76 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		B6EC5955280C2F37001ECD76 /* NavigationViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewManager.swift; sourceTree = "<group>"; };
 		B6EC5959280C3009001ECD76 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		B6EC595B280C448E001ECD76 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				B6EC5959280C3009001ECD76 /* UserDetailView.swift */,
 				B6EC593C280C1518001ECD76 /* Assets.xcassets */,
 				B6EC593E280C1518001ECD76 /* Preview Content */,
+				B6EC595B280C448E001ECD76 /* UserInfoView.swift */,
 			);
 			path = GithubRepo;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				B6EC5951280C17BE001ECD76 /* UserRow.swift in Sources */,
 				B6EC594C280C1690001ECD76 /* UserDetail.swift in Sources */,
 				B6EC5948280C1649001ECD76 /* Repository.swift in Sources */,
+				B6EC595C280C448E001ECD76 /* UserInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
