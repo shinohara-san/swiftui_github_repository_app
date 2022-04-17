@@ -8,10 +8,19 @@
 import Foundation
 
 struct UserDetail: Codable, Identifiable {
-    let id: String
-    let login: String
+    let id: Int
+    let nickName: String
     let name: String?
-    let avatarUrl: String // avatar_url
+    let avatarUrl: String
     let followers: Int
     let following: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case nickName = "login"
+        case name
+        case avatarUrl = "avatar_url"
+        case followers
+        case following
+    }
 }
