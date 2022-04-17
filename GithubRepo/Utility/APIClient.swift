@@ -9,11 +9,11 @@ import Foundation
 import Alamofire
 
 class APIClient {
-    static func getUsers(completion: @escaping (UserDetail) -> ()) {
-        AF.request("https://api.github.com/users/shinohara-san",
+    static func getUsers(completion: @escaping ([User]) -> ()) {
+        AF.request("https://api.github.com/users",
                    method: .get,
                    encoding: URLEncoding.default)
-        .responseDecodable(of: UserDetail.self) { response in
+        .responseDecodable(of: [User].self) { response in
             switch response.result {
             case .success(let data):
                 completion(data)

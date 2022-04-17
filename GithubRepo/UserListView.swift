@@ -12,14 +12,21 @@ struct UserListView: View {
     init() {
         NavigationViewManager.setUpColor()
     }
-    
-    @State private var users = [UserDetail]()
+
+    @State private var users = [User]()
 
     var body: some View {
         NavigationView {
             List {
                 ForEach(users) { user in
-                    UserRow(userData: User(id: user.nickName, name: user.name ?? "-", avatarUrl: user.avatarUrl))
+                    NavigationLink {
+                        UserDetailView()
+                    } label: {
+                        UserRow(userData: User(id: user.id,
+                                               name: user.name,
+                                               avatarUrl: user.avatarUrl))
+                    }
+
                 }
             }
             .listStyle(.grouped)
@@ -28,7 +35,7 @@ struct UserListView: View {
         }
         .onAppear {
             APIClient.getUsers { users in
-                self.users.append(users)
+                self.users.append(contentsOf: users)
             }
         }
     }
