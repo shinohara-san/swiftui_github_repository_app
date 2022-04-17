@@ -15,6 +15,7 @@
 		B6EC594C280C1690001ECD76 /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC594B280C1690001ECD76 /* UserDetail.swift */; };
 		B6EC594F280C178D001ECD76 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC594E280C178D001ECD76 /* UserListView.swift */; };
 		B6EC5951280C17BE001ECD76 /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC5950280C17BE001ECD76 /* UserRow.swift */; };
+		B6EC5954280C19C6001ECD76 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC5953280C19C6001ECD76 /* APIClient.swift */; };
 		D16D01FBB4ED3EA8B42F67AE /* Pods_GithubRepo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884F0A565126913E75CC3BD1 /* Pods_GithubRepo.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		B6EC594B280C1690001ECD76 /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
 		B6EC594E280C178D001ECD76 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		B6EC5950280C17BE001ECD76 /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
+		B6EC5953280C19C6001ECD76 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		B6EC5937280C1517001ECD76 /* GithubRepo */ = {
 			isa = PBXGroup;
 			children = (
+				B6EC5952280C19B3001ECD76 /* Utility */,
 				B6EC5946280C15FF001ECD76 /* Model */,
 				B6EC5938280C1517001ECD76 /* GithubRepoApp.swift */,
 				B6EC594E280C178D001ECD76 /* UserListView.swift */,
@@ -102,13 +105,20 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B6EC5952280C19B3001ECD76 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				B6EC5953280C19C6001ECD76 /* APIClient.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		E44A2F54B4B939537D193524 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				14FBE4839A5F4B161706D61E /* Pods-GithubRepo.debug.xcconfig */,
 				4AAE2B7974FD2EA8AC314A3D /* Pods-GithubRepo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6EC594A280C167E001ECD76 /* User.swift in Sources */,
+				B6EC5954280C19C6001ECD76 /* APIClient.swift in Sources */,
 				B6EC594F280C178D001ECD76 /* UserListView.swift in Sources */,
 				B6EC5939280C1517001ECD76 /* GithubRepoApp.swift in Sources */,
 				B6EC5951280C17BE001ECD76 /* UserRow.swift in Sources */,

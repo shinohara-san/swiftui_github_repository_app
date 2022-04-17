@@ -12,18 +12,24 @@ struct UserListView: View {
     init() {
         setUpNavigationBarColor()
     }
+    
+    @State private var users = [UserDetail]()
 
     var body: some View {
         NavigationView {
             List {
-                UserRow(userData: User(id: "1", name: "shino", avatarUrl: ""))
-                UserRow(userData: User(id: "2", name: "shino", avatarUrl: ""))
-                UserRow(userData: User(id: "3", name: "shino", avatarUrl: ""))
-                UserRow(userData: User(id: "4", name: "shino", avatarUrl: ""))
+                ForEach(users) { user in
+                    UserRow(userData: User(id: user.nickName, name: user.name ?? "-", avatarUrl: user.avatarUrl))
+                }
             }
             .listStyle(.grouped)
             .navigationTitle("GitHub Users")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onAppear {
+            APIClient.getUsers { users in
+                self.users.append(users)
+            }
         }
     }
 
