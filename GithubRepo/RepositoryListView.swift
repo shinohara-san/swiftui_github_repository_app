@@ -14,14 +14,18 @@ struct RepositoryListView: View {
     var body: some View {
         List {
             ForEach(repositories?.filter { !$0.fork } ?? [Repository]()) { repo in
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(repo.name)
-                    if let language = repo.language {
-                        Text(language)
-                    }
-                    Text("\(repo.stargazersCount)")
-                    if let description = repo.description {
-                        Text(description)
+                NavigationLink {
+                    RepositoryWebView(url: repo.url)
+                } label: {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(repo.name)
+                        if let language = repo.language {
+                            Text(language)
+                        }
+                        Text("\(repo.stargazersCount)")
+                        if let description = repo.description {
+                            Text(description)
+                        }
                     }
                 }
             }
