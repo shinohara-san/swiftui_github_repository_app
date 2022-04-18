@@ -13,14 +13,14 @@ struct UserListView: View {
         NavigationViewManager.setUpColor()
     }
 
-    @State private var users = [User]()
+    @StateObject private var viewModel = UserListViewModel()
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(users) { user in
+                ForEach(viewModel.users) { user in
                     NavigationLink {
-                        UserDetailView(userName: user.userName)
+                        UserDetailView(viewModel: UserDetailViewModel(userName: user.userName))
                     } label: {
                         UserRow(userData: User(id: user.id,
                                                userName: user.userName,
@@ -33,9 +33,7 @@ struct UserListView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
-            APIClient.getUsers { users in
-                self.users.append(contentsOf: users)
-            }
+            viewModel.getUsers()
         }
     }
 }

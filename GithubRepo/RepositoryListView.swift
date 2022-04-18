@@ -13,7 +13,7 @@ struct RepositoryListView: View {
 
     var body: some View {
         List {
-            ForEach(repositories?.filter { !$0.fork } ?? [Repository]()) { repo in
+            ForEach(repositories?.filter { !$0.fork } ?? [Repository]() ) { repo in
                 NavigationLink {
                     RepositoryWebView(url: repo.url)
                 } label: {
