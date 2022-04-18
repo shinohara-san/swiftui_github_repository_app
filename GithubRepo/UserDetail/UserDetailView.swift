@@ -17,6 +17,7 @@ struct UserDetailView: View {
                 .padding()
             RepositoryListView(repositories: viewModel.repositories)
         }
+        .navigationTitle(viewModel.userName)
         .onAppear {
             viewModel.getUser()
             viewModel.getRepositories()

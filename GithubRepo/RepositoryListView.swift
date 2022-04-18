@@ -19,7 +19,11 @@ struct RepositoryListView: View {
                     self.showingSheet.toggle()
                 } label: {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text(repo.name)
+                        HStack {
+                            Image(systemName: "magazine.fill")
+                                .foregroundColor(Color.pink)
+                            Text(repo.name)
+                        }
                         if let language = repo.language {
                             Text(language)
                         }
