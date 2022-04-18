@@ -10,15 +10,20 @@ import SwiftUI
 struct RepositoryListView: View {
 
     let repositories: [Repository]?
+    @State private var showingSheet = false
 
     var body: some View {
         List {
             ForEach(repositories?.filter { !$0.fork } ?? [Repository]() ) { repo in
-                NavigationLink {
-                    RepositoryWebView(url: repo.url)
+                Button {
+                    self.showingSheet.toggle()
                 } label: {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text(repo.name)
+                        HStack {
+                            Image(systemName: "magazine.fill")
+                                .foregroundColor(Color.pink)
+                            Text(repo.name)
+                        }
                         if let language = repo.language {
                             Text(language)
                         }
@@ -28,8 +33,25 @@ struct RepositoryListView: View {
                         }
                     }
                 }
+                .foregroundColor(.black)
+                .sheet(isPresented: $showingSheet) {
+                    NavigationView {
+                        RepositoryWebView(url: repo.url)
+                            .navigationBarTitle(Text(repo.name),
+                                                displayMode: .inline)
+                            .toolbar {
+                                ToolbarItem(placement: .navigationBarLeading) {
+                                    Button("閉じる") {
+                                        showingSheet.toggle()
+                                    }
+                                    .foregroundColor(Color.white)
+                                }
+                            }
+                    }
+                }
             }
         }
+        .listStyle(.grouped)
     }
 }
 
