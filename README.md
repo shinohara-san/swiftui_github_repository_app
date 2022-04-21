@@ -15,4 +15,4 @@
 pod install
 ```
 
-- GitHub Personal Access Token
+- GitHub Personal Access Token (GitHubRequest > token)
