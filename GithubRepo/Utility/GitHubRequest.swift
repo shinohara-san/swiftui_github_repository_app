@@ -20,13 +20,17 @@ public extension GitHubRequest {
         return URL(string: "https://api.github.com/")!
     }
 
+    var token: String {
+        return "YOUR_ACCESS_TOKEN"
+    }
+
     func buildURLRequest() -> URLRequest {
         let url = baseURL.appendingPathComponent(path)
         let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         var urlRequest = URLRequest(url: url)
         urlRequest.url = components?.url
         urlRequest.httpMethod = "GET"
-        urlRequest.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
+        urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 
         return urlRequest
     }
