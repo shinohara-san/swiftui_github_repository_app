@@ -19,14 +19,34 @@ final class UserDetailViewModel: ObservableObject {
     }
 
     func getUser() {
-        APIClient.getUser(userName: userName) { userDetail in
-            self.userDetail = userDetail
+        let client = GitHubClient(httpClient: URLSession.shared)
+        let request = GitHubAPI.GetUser(userName: userName)
+
+        client.send(request: request) { result in
+            switch result {
+            case .success(let userDetail):
+                DispatchQueue.main.async {
+                    self.userDetail = userDetail
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 
     func getRepositories() {
-        APIClient.getRepositories(userName: userName) { repositories in
-            self.repositories = repositories
+        let client = GitHubClient(httpClient: URLSession.shared)
+        let request = GitHubAPI.GetRepositories(userName: userName)
+
+        client.send(request: request) { result in
+            switch result {
+            case .success(let repositories):
+                DispatchQueue.main.async {
+                    self.repositories = repositories
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }

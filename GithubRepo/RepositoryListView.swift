@@ -18,20 +18,7 @@ struct RepositoryListView: View {
                 Button {
                     self.showingSheet.toggle()
                 } label: {
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack {
-                            Image(systemName: "magazine.fill")
-                                .foregroundColor(Color.pink)
-                            Text(repo.name)
-                        }
-                        if let language = repo.language {
-                            Text(language)
-                        }
-                        Text("\(repo.stargazersCount)")
-                        if let description = repo.description {
-                            Text(description)
-                        }
-                    }
+                    RepositoryRow(repository: repo)
                 }
                 .foregroundColor(.black)
                 .sheet(isPresented: $showingSheet) {
