@@ -26,12 +26,12 @@ struct UserInfoView: View {
                 .frame(width: 160, height: 160, alignment: .center)
 
             VStack(alignment: .leading, spacing: 10) {
-                Text("ユーザー名: \(userDetail?.userName ?? "")")
+                Text("User name: \(userDetail?.userName ?? "")")
                 if let fullName = userDetail?.fullName {
-                    Text("フルネーム: \(fullName)")
+                    Text("Full name: \(fullName)")
                 }
-                Text("フォロワー数: \(userDetail?.followers ?? 0)")
-                Text("フォロイー数: \(userDetail?.following ?? 0)")
+                Text("Followers: \(userDetail?.followers ?? 0)")
+                Text("Following: \(userDetail?.following ?? 0)")
             }
         }
     }
