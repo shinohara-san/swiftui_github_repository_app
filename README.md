@@ -14,3 +14,5 @@
 ```
 pod install
 ```
+
+- GitHub Personal Access Token
